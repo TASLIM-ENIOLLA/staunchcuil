@@ -5,7 +5,7 @@ import * as API from '/api'
 import Countries from '/data/countries'
 
 import Header from '/components/pages/Header'
-import NavBar from '/components/pages/NavBar'
+// import NavBar from '/components/pages/NavBar'
 import Footer from '/components/pages/Footer'
 
 export default function BookAppointment(){
@@ -27,12 +27,24 @@ export default function BookAppointment(){
 	return (
 		<Fragment>
 			<Header />
-			<NavBar />
+			{/* <NavBar /> */}
 			<section className = 'py-5'>
 				<div className = 'container'>
 					<div className = 'row j-c-c py-5'>
 						<div className = 'col-lg-7'>
 							<div className = 'row'>
+								<div className="col-12">
+									<div className="row">
+										<div className="col-auto">
+											<a href='/' className="row a-i-c">
+												<div className="col-auto">
+													<span className="bi-arrow-left fo-s-16"></span>
+												</div>
+												<span className='text-capitalize underline'>back</span>
+											</a>
+										</div>
+									</div>
+								</div>
 								<div className = 'col-12 text-center mb-5'>
 									<h1 className = 'text-capitalize bold theme-color'>book appointment</h1>
 		                        	<h5 className = 'text-sentence text-muted'>lorem ipsum dolor sit amet consectetur adipiscing</h5>
@@ -67,6 +79,11 @@ export default function BookAppointment(){
 											<h6 className = 'text-capitalize'>leave a message</h6>
 											<textarea
 												value = {formData.message}
+												onKeyUp = {(e) => {
+													if(formData.message < 200) return
+
+													e.preventDefault()
+												}}
 												onChange = {({target: {value}}) => (
 													(value.length < 200)
 													? setFormData({...formData, message: value})
@@ -75,7 +92,11 @@ export default function BookAppointment(){
 												name = 'message'
 												className = 'd-block w-100 p-3 resize-0 rounded-lg border border-dark'
 												rows = '5' />
-											<p className = 'mt-2 text-danger half-bold'>Maximum of 200 characters</p>
+											<p className = 'mt-2 text-muted bold half-bold'>{
+												formData.message.length === 0
+												? 'Maximum of 200 characters'
+												: `${200 - formData.message.length} characters remaining`
+											}</p>
 										</div>
 										<div className = 'col-lg-6 mb-4'>
 											<button type = 'submit' className = 'p-3 text-capitalize bold theme-bg text-white border-0 d-block w-100 rounded-lg'>

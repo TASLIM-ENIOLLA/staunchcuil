@@ -80,11 +80,6 @@ a, span{
     text-decoration: none;
     user-select: none;
 }
-body{
-    background-image: linear-gradient(#ffffffbb, #ffffffbb), url(/gifs/g.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-}
 @keyframes side_to_side{
     from{
         background-position: top left;

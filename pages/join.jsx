@@ -6,7 +6,7 @@ import Countries from '/data/countries'
 import Socials from '/data/socials'
 
 import Header from '/components/pages/Header'
-import NavBar from '/components/pages/NavBar'
+// import NavBar from '/components/pages/NavBar'
 import Footer from '/components/pages/Footer'
 
 export default function BookAppointment(){
@@ -24,12 +24,24 @@ export default function BookAppointment(){
 	return (
 		<Fragment>
 			<Header />
-			<NavBar />
+			{/* <NavBar /> */}
 			<section className = 'py-5'>
 				<div className = 'container'>
 					<div className = 'row j-c-c py-5'>
 						<div className = 'col-lg-7'>
 							<div className = 'row'>
+								<div className="col-12">
+									<div className="row">
+										<div className="col-auto">
+											<a href='/' className="row a-i-c">
+												<div className="col-auto">
+													<span className="bi-arrow-left fo-s-16"></span>
+												</div>
+												<span className='text-capitalize underline'>back</span>
+											</a>
+										</div>
+									</div>
+								</div>
 								<div className = 'col-12 text-center mb-5'>
 									<h1 className = 'text-capitalize bold theme-color'>join us</h1>
 		                        	<h5 className = 'text-sentence text-muted'>be a part of our growing community</h5>
@@ -100,9 +112,13 @@ export default function BookAppointment(){
 											<h6 className = 'text-capitalize'>social media links</h6>
 											<SocialLinks value = {formData.social_links} onChange = {({links}) => setFormData({...formData, social_links: links})} />
 										</div>
+										<div className = 'col-12 mb-5'>
+											<h6 className = 'text-capitalize'>attach document</h6>
+											<AttachDocument />
+										</div>
 										<div className = 'col-lg-6 mb-4'>
 											<button type = 'submit' className = 'p-3 text-capitalize bold theme-bg text-white border-0 d-block w-100 rounded-lg'>
-												submit
+												join
 											</button>
 										</div>
 									</form>
@@ -114,6 +130,41 @@ export default function BookAppointment(){
 			</section>
 			<Footer />
 		</Fragment>
+	)
+}
+
+function AttachDocument(){
+	const [file, setFile] = useState()
+
+	return (
+		<div className="container-fluid border border-dark bg-light rounded-lg overflow-0">
+			<div className="row a-i-c">
+				<label className='col-auto m-0 cursor-pointer bold text-capitalize text-white theme-bg p-3'>
+					{file && file instanceof File ? (
+						<span>1 file selected</span>	
+					) : (
+						<span>select file</span>
+					)}
+					<input onChange = {(e) => {
+						const file = e.target.files[0]
+
+						if(file instanceof File) setFile(file)
+						else alert('File doesn\'t seem to be valid')
+					}} type="file" hidden = {true} />
+				</label>
+				{file && file instanceof File && (
+					<Fragment>
+						<span className="col text-sentence bold one-line">{file.name}</span>
+						<button onClick={() => setFile()} className = 'col-auto border-0 bg-clear'>
+							<span className = 'bi-x fa-2x'></span>
+						</button>
+					</Fragment>
+				)}
+				{!file && (
+					<span className="col text-muted text-sentence bold">no file selected</span>
+				)}
+			</div>
+		</div>
 	)
 }
 
