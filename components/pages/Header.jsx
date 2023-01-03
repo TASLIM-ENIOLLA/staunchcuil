@@ -1,20 +1,28 @@
 export default function Header(){
 	return (
-		<section className = 'theme-bg position-sticky top-0 shadow py-4'>
-            <div className = 'container py-2'>
+		<header id = 'home' className = 'theme-bg py-3'>
+            <div className = 'container'>
                 <div className = 'row a-i-c j-c-space-between'>
                     <div className = 'col-auto'>
-                        <img src = '/vercel.svg' width = '100' />
+                        <img width = '140' src = '/logo-2.png' />
                     </div>
-                    <div className = 'col-auto text-capitalize text-white'>
-                        <a className = 'mx-4 d-inline-block' href = '/home'>home</a>
-                        <a className = 'mx-4 d-inline-block' href = '/about'>about us</a>
-                        <a className = 'mx-4 d-inline-block' href = '/services'>services</a>
-                        <a className = 'mx-4 d-inline-block' href = '/contact'>contact us</a>
-                        <a className = 'mx-4 d-inline-block' href = '/join'>join</a>
+                    <div className = 'col-auto d-md-none'>
+                        <button className = 'bg-clear border-0'>
+                            <span className = 'bi-border-width fa-2x text-white'></span>
+                        </button>
+                    </div>
+                    <div className = 'col-auto d-none d-md-block'>
+                        <div className = 'row a-i-c text-white'>
+                            <div className = 'col-auto mx-3'>
+                                <a href = 'mailto://staunchcuilservices@gmail'>staunchcuilservices@gmail</a>
+                            </div>
+                            <div className = 'col-auto mx-3'>
+                                <a href = 'tel://+91-9010-123-200'>+91-9010-123-200</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
 	)
 }

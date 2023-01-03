@@ -1,0 +1,1 @@
+export const BOOK_APPOINTMENT = `${process.env.FRONTEND_SERVER}api/book-appointment`
