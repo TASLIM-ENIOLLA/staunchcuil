@@ -1,4 +1,5 @@
 import {Fragment, useState, useEffect, useRef} from 'react'
+import Link from 'next/link'
 
 import * as API from '/api'
 
@@ -33,12 +34,12 @@ export default function BookAppointment(){
 								<div className="col-12">
 									<div className="row">
 										<div className="col-auto">
-											<a href='/' className="row a-i-c">
+											<Link href='/' className="row a-i-c">
 												<div className="col-auto">
 													<span className="bi-arrow-left fo-s-16"></span>
 												</div>
 												<span className='text-capitalize underline'>back</span>
-											</a>
+											</Link>
 										</div>
 									</div>
 								</div>
