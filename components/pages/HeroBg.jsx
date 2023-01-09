@@ -1,29 +1,65 @@
-import Link from 'next/link'
+import { useState } from 'react'
+import { Carousel } from '/components/utils/hero-bg'
 
 export default function HeroBg(){
-	return (
-		<section className = 'hero-bg'>
-           <div className = 'container h-100 py-5'>
-                <div className = 'row a-i-c' style = {{minHeight: '250px', maxHeight: '450px'}}>
-                    <div className = 'col-md-9 col-lg-6 text-white'>
-                        <h1 className = 'text-capitalize bold mb-5'>best free website template</h1>
-                        <h5 className = 'half-bold mb-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent</h5>
-                        <Link href = '/book-appointment' className = 'btn bg-teal bold text-white text-capitalize px-5 py-3'>
-                            book appointment
-                        </Link>
+    const [counter, setCounter] = useState(0)
+    const { component, image } = Carousel[counter]
+
+    function moveForward(){
+        if(counter < Carousel.length - 1)
+            setCounter(e => e + 1)
+        else
+            setCounter(0)
+    }
+
+    function moveBackward(){
+        if(counter > 0)
+            setCounter(e => e - 1)
+        else
+            setCounter(Carousel.length - 1)
+    }
+
+    return (
+        <section className = 'position-relative'>
+            <div className = 'py-20'>
+                <div className = 'container'>
+                    <div className = 'row'>
+                        <div className = 'col-lg-6 col-md-8 col-12'>
+                            {component}
+                        </div>
                     </div>
                 </div>
             </div>
+            <div className = 'z-index--10 position-absolute top-0 left-0 w-100 h-100'>
+                <img src = {image} className = 'w-100 h-100 d-block image-manip' />
+            </div>
+            <button onClick = {moveBackward} style = {{
+                transform: 'translate(0, -50%)',
+                top: '50%',
+                left: '0%'
+            }} className = 'mx-3 btn position-absolute py-4 btn-dark border-0 rounded-lg px-1'>
+                <span className = 'fo-s-20 bi-caret-left-fill'></span>
+            </button>
+            <button onClick = {moveForward} style = {{
+                transform: 'translate(0, -50%)',
+                top: '50%',
+                right: '0%'
+            }} className = 'mx-3 btn position-absolute py-4 btn-dark border-0 rounded-lg px-1'>
+                <span className = 'fo-s-20 bi-caret-right-fill'></span>
+            </button>
             <style jsx>{`
-                .hero-bg{
-                    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(/images/slider_1.jpg);
-                    background-size: cover;
-                    background-position: center;
+                .image-manip{
+                    aspect-ratio: 2/1;
+                    filter: brightness(.5);
+                    object-fit: cover;
                 }
-                .image-filter{
-                    filter: contrast(1) brightness(.5);
+                .z-index--10{
+                    z-index: -10;
+                }
+                .py-20{
+                    padding: 10rem 0;
                 }
             `}</style>
         </section>
-	)
+    )
 }

@@ -3,7 +3,7 @@ export default function Footer(){
 		<footer className = 'py-5 bg-dark text-white'>
             <div className = 'container'>
                 <div className = 'row py-5'>
-                    <div className = 'col-lg-4 mb-5'>
+                    <div className = 'col-lg-4 col-md-6 mb-5'>
                         <h5 className = 'text-capitalize bold mb-4'>about us</h5>
                         <p>Phasellus scelerisque ornare nisl sit amet pulvinar. Nunc non scelerisque augue. Proin et sollicitudin velit.</p>
                         <div className = 'row py-3 a-i-c'>
@@ -19,8 +19,7 @@ export default function Footer(){
                                 <span className = 'bi-envelope-open fo-s-20'></span>
                             </div>
                             <div className = 'col'>
-                                <a className = 'd-block mb-1' href = 'mailto://info@smarteyeapps.com'>info@smarteyeapps.com</a>
-                                <a className = 'd-block mb-1' href = 'mailto://sales@smarteyeapps.com'>sales@smarteyeapps.com</a>
+                                <a href = 'mailto://staunchcuilservices@gmail'>staunchcuilservices@gmail</a>
                             </div>
                         </div>
                         <div className = 'row py-3 a-i-c'>
@@ -28,12 +27,11 @@ export default function Footer(){
                                 <span className = 'bi-phone fo-s-20'></span>
                             </div>
                             <div className = 'col'>
-                                <a className = 'd-block mb-1' href = 'tel://+23 323 43434'>+23 323 43434</a>
-                                <a className = 'd-block mb-1' href = 'tel://+1 3232 434 55'>+1 3232 434 55</a>
+                                <a href = 'tel://+91-9010-123-200'>+91-9010-123-200</a>
                             </div>
                         </div>
                     </div>
-                    <div className = 'col-lg-4 mb-5'>
+                    <div className = 'col-lg-4 col-md-6 mb-5'>
                         <h5 className = 'text-capitalize bold mb-4'>links</h5>
                         <div className = 'row pb-4 a-i-c'>
                             <div className = 'col-auto'>
@@ -76,29 +74,26 @@ export default function Footer(){
                             </div>
                         </div>
                     </div>
-                    <div className = 'col-lg-4 mb-5'>
-                        <h5 className = 'text-capitalize bold mb-4'>easy tags</h5>
+                    <div className = 'col-lg-4 col-md-6 mb-5'>
+                        <h5 className = 'text-capitalize bold mb-4'>features</h5>
                         <div className = 'row'>
-                            <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>finance</div>
-                            </div>
                             <div className = 'col-auto mb-4'>
                                 <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>web design</div>
                             </div>
                             <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>internet pro</div>
+                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>web development</div>
                             </div>
                             <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>node js</div>
+                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>software development</div>
                             </div>
                             <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>java swing</div>
+                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>life insurance</div>
                             </div>
                             <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>angular js</div>
+                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>real estate</div>
                             </div>
                             <div className = 'col-auto mb-4'>
-                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>vue js</div>
+                                <div className = 'border border-white rounded-lg px-3 py-2 text-capitalize'>health insurance</div>
                             </div>
                         </div>
                     </div>
@@ -112,19 +107,29 @@ export default function Footer(){
                     <div className = 'col-lg-auto'>
                         <div className = 'row'>
                             <div className = 'col-auto'>
-                                <span className = 'bi-facebook fo-s-18'></span>
+                                <a href = ''>
+                                    <span className = 'bi-facebook fo-s-18'></span>
+                                </a>
                             </div>
                             <div className = 'col-auto'>
-                                <span className = 'bi-github fo-s-18'></span>
+                                <a href = ''>
+                                    <span className = 'bi-github fo-s-18'></span>
+                                </a>
                             </div>
                             <div className = 'col-auto'>
-                                <span className = 'bi-pinterest fo-s-18'></span>
+                                <a href = ''>
+                                    <span className = 'bi-pinterest fo-s-18'></span>
+                                </a>
                             </div>
                             <div className = 'col-auto'>
-                                <span className = 'bi-twitter fo-s-18'></span>
+                                <a href = ''>
+                                    <span className = 'bi-twitter fo-s-18'></span>
+                                </a>
                             </div>
                             <div className = 'col-auto'>
-                                <span className = 'bi-google fo-s-18'></span>
+                                <a href = ''>
+                                    <span className = 'bi-google fo-s-18'></span>
+                                </a>
                             </div>
                         </div>
                     </div>
