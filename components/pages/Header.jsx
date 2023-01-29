@@ -1,6 +1,16 @@
+import {useRouter} from 'next/router'
+import {URL} from '/data/URL'
+
+function appropriateURI(asPath, uri){
+    if(asPath === '/' && !uri[1]) return uri[0]
+    else return uri[1]
+}
+
 export default function Header(){
+    const {route} = useRouter()
+
 	return (
-		<header id = 'home' className = 'theme-bg py-3'>
+		<header id = 'home' className = 'theme-bg py-3 position-sticky top-0 left-0' style = {{zIndex: 10}}>
             <div className = 'container'>
                 <div className = 'row a-i-c j-c-space-between'>
                     <div className = 'col-auto'>
@@ -12,14 +22,13 @@ export default function Header(){
                         </button>
                     </div>
                     <div className = 'col-auto d-none d-md-block'>
-                        <div className = 'row a-i-c text-white'>
-                            <div className = 'col-auto mx-3'>
-                                <a href = 'mailto://staunchcuilservices@gmail'>staunchcuilservices@gmail</a>
-                            </div>
-                            <div className = 'col-auto mx-3'>
-                                <a href = 'tel://+91-9010-123-200'>+91-9010-123-200</a>
-                            </div>
-                        </div>
+                        <div className = 'row text-white'>{
+                            URL.map(({name, uri}) => (
+                                <div className = 'col-auto' key = {uri}>
+                                    <a href = {appropriateURI(route, uri)} className = {`${route === '/' ? 'hash-links' : ''} text-capitalize mr-4`}>{name}</a>
+                                </div>
+                            ))
+                        }</div>
                     </div>
                 </div>
             </div>

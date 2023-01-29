@@ -7,7 +7,6 @@ import Countries from '/data/countries'
 import Socials from '/data/socials'
 
 import Header from '/components/pages/Header'
-// import NavBar from '/components/pages/NavBar'
 import Footer from '/components/pages/Footer'
 
 export default function BookAppointment(){
@@ -25,7 +24,6 @@ export default function BookAppointment(){
 	return (
 		<Fragment>
 			<Header />
-			{/* <NavBar /> */}
 			<section className = 'py-5'>
 				<div className = 'container'>
 					<div className = 'row j-c-c py-5'>

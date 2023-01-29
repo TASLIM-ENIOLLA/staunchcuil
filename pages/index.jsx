@@ -13,7 +13,6 @@ export default function Index(){
     return (
         <Fragment>
             <Header />
-            <NavBar />
             <HeroBg />
             <Features />
             <About />

@@ -6,7 +6,6 @@ import * as API from '/api'
 import Countries from '/data/countries'
 
 import Header from '/components/pages/Header'
-// import NavBar from '/components/pages/NavBar'
 import Footer from '/components/pages/Footer'
 
 export default function BookAppointment(){
@@ -28,7 +27,6 @@ export default function BookAppointment(){
 	return (
 		<Fragment>
 			<Header />
-			{/* <NavBar /> */}
 			<section className = 'py-5'>
 				<div className = 'container'>
 					<div className = 'row j-c-c py-5'>
@@ -53,8 +51,9 @@ export default function BookAppointment(){
 								<div className = 'col-12'>
 									<form onSubmit = {handleFormSubmit} className = 'row'>
 										<div className = 'col-lg-6 mb-4'>
-											<h6 className = 'text-capitalize'>full name</h6>
+											<h6 className = 'text-capitalize'>full name *</h6>
 											<input
+												required = {true}
 												value = {formData.full_name}
 												onChange = {({target: {value}}) => setFormData({...formData, full_name: value})}
 												type = 'text'
@@ -62,14 +61,15 @@ export default function BookAppointment(){
 												className = 'd-block w-100 p-3 rounded-lg border border-dark' />
 										</div>
 										<div className = 'col-lg-6 mb-4'>
-											<h6 className = 'text-capitalize'>phone number</h6>
+											<h6 className = 'text-capitalize'>phone number *</h6>
 											<PhoneInput
 												value = {formData.phone}
 												onChange = {({value}) => setFormData({...formData, phone: value})} />
 										</div>
 										<div className = 'col-12 mb-4'>
-											<h6 className = 'text-capitalize'>email address</h6>
+											<h6 className = 'text-capitalize'>email address *</h6>
 											<input
+												required = {true}
 												value = {formData.email}
 												onChange = {({target: {value}}) => setFormData({...formData, email: value})}
 												type = 'email'
@@ -77,7 +77,7 @@ export default function BookAppointment(){
 												className = 'd-block w-100 p-3 rounded-lg border border-dark' />
 										</div>
 										<div className = 'col-12 mb-5'>
-											<h6 className = 'text-capitalize'>leave a message</h6>
+											<h6 className = 'text-capitalize'>leave a message *</h6>
 											<textarea
 												value = {formData.message}
 												onKeyUp = {(e) => {
@@ -139,6 +139,7 @@ function PhoneInput({value = '', onChange}){
 					}
 				</select>
 				<input
+					required = {true}
 					value = {inputValue.number}
 					onChange = {({target: {value}}) => setInputValue((currentValue) => ({...currentValue, number: parseInt(value)}))}
 					type = 'phone'

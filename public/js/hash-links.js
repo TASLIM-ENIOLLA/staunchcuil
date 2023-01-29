@@ -11,3 +11,9 @@ document.querySelectorAll('.hash-links')
 		}
 	}
 ))
+
+window.onload = () => {
+	const {search} = window.location
+
+	const section = document.querySelector(`#${search}`).scrollIntoView({behavior: 'smooth'})
+}

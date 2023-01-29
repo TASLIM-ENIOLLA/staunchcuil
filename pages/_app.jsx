@@ -6,8 +6,8 @@ import '/public/css/globals.css'
 export default function App({Component, pageProps}){
     return (
         <Fragment>
-            <Script src = '/js/hash-links.js'></Script>
             <Component {...pageProps} />
+            <Script src = '/js/hash-links.js'></Script>
         </Fragment>
     )
 }

@@ -1,4 +1,14 @@
+import {useRouter} from 'next/router'
+import {URL} from '/data/URL'
+
+function appropriateURI(asPath, uri){
+    if(asPath === '/' && !uri[1]) return uri[0]
+    else return uri[1]
+}
+
 export default function Footer(){
+    const {asPath, route, ...rest} = useRouter()
+
 	return (
 		<footer className = 'py-5 bg-dark text-white'>
             <div className = 'container'>
@@ -19,7 +29,7 @@ export default function Footer(){
                                 <span className = 'bi-envelope-open fo-s-20'></span>
                             </div>
                             <div className = 'col'>
-                                <a href = 'mailto://staunchcuilservices@gmail'>staunchcuilservices@gmail</a>
+                                <a href = 'mailto://staunchcuilservices@gmail.com'>staunchcuilservices@gmail.com</a>
                             </div>
                         </div>
                         <div className = 'row py-3 a-i-c'>
@@ -32,47 +42,22 @@ export default function Footer(){
                         </div>
                     </div>
                     <div className = 'col-lg-4 col-md-6 mb-5'>
-                        <h5 className = 'text-capitalize bold mb-4'>links</h5>
-                        <div className = 'row pb-4 a-i-c'>
-                            <div className = 'col-auto'>
-                                <span className = 'bi-chevron-double-right fo-s-18'></span>
-                            </div>
-                            <div className = 'col'>
-                                <a className = 'text-capitalize bold hash-links' href = 'home'>home</a>
-                            </div>
-                        </div>
-                        <div className = 'row pb-4 a-i-c'>
-                            <div className = 'col-auto'>
-                                <span className = 'bi-chevron-double-right fo-s-18'></span>
-                            </div>
-                            <div className = 'col'>
-                                <a className = 'text-capitalize bold hash-links' href = 'about'>about us</a>
-                            </div>
-                        </div>
-                        <div className = 'row pb-4 a-i-c'>
-                            <div className = 'col-auto'>
-                                <span className = 'bi-chevron-double-right fo-s-18'></span>
-                            </div>
-                            <div className = 'col'>
-                                <a className = 'text-capitalize bold hash-links' href = 'services'>services</a>
-                            </div>
-                        </div>
-                        <div className = 'row pb-4 a-i-c'>
-                            <div className = 'col-auto'>
-                                <span className = 'bi-chevron-double-right fo-s-18'></span>
-                            </div>
-                            <div className = 'col'>
-                                <a className = 'text-capitalize bold hash-links' href = 'contact'>contact us</a>
-                            </div>
-                        </div>
-                        <div className = 'row pb-4 a-i-c'>
-                            <div className = 'col-auto'>
-                                <span className = 'bi-chevron-double-right fo-s-18'></span>
-                            </div>
-                            <div className = 'col'>
-                                <a className = 'text-capitalize bold hash-links' href = 'join'>join</a>
-                            </div>
-                        </div>
+                        <h5 className = 'text-capitalize bold mb-4'>links</h5>{
+                            URL.map(({name, uri}, index) => {
+                                const href = `${route === '/' ? '' : '/'}${appropriateURI(route, uri)}`.replace('#', '?section=')
+
+                                return (
+                                    <div key = {index} className = 'row pb-4 a-i-c'>
+                                        <div className = 'col-auto'>
+                                            <span className = 'bi-chevron-double-right fo-s-18'></span>
+                                        </div>
+                                        <div className = 'col'>
+                                            <a href = {href || '/'} className = {`${route === '/' ? 'hash-links' : ''} text-capitalize bold`}>{name}</a>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                     <div className = 'col-lg-4 col-md-6 mb-5'>
                         <h5 className = 'text-capitalize bold mb-4'>features</h5>
@@ -113,22 +98,17 @@ export default function Footer(){
                             </div>
                             <div className = 'col-auto'>
                                 <a href = ''>
-                                    <span className = 'bi-github fo-s-18'></span>
-                                </a>
-                            </div>
-                            <div className = 'col-auto'>
-                                <a href = ''>
-                                    <span className = 'bi-pinterest fo-s-18'></span>
-                                </a>
-                            </div>
-                            <div className = 'col-auto'>
-                                <a href = ''>
                                     <span className = 'bi-twitter fo-s-18'></span>
                                 </a>
                             </div>
                             <div className = 'col-auto'>
                                 <a href = ''>
-                                    <span className = 'bi-google fo-s-18'></span>
+                                    <span className = 'bi-instagram fo-s-18'></span>
+                                </a>
+                            </div>
+                            <div className = 'col-auto'>
+                                <a href = ''>
+                                    <span className = 'bi-whatsapp fo-s-18'></span>
                                 </a>
                             </div>
                         </div>
